@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+    @apply bg-zinc-900 text-zinc-200;
+}
+
+.home-first-text {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1.2;
+    text-align: center;
+    margin: 100px 0 40px;
+    color: #fff;
+}
+
+.home-second-text {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 16px;
+}
