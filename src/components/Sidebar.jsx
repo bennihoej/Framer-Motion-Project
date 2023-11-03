@@ -1,19 +1,18 @@
-import { useRef, useState } from 'react'
-import { GiHamburgerMenu } from 'react-icons/gi'
-import { AnimatePresence, motion } from 'framer-motion'
-import { useClickAway } from 'react-use'
-import { AiOutlineRollback } from 'react-icons/ai'
-import { BiHomeSmile, BiUser } from 'react-icons/bi'
-import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2'
-import { FiSettings, FiShoppingCart } from 'react-icons/fi'
-import React from 'react';
+import { useRef, useState } from 'react';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useClickAway } from 'react-use';
+import { AiOutlineRollback } from 'react-icons/ai';
+import { BiHomeSmile, BiUser } from 'react-icons/bi';
+import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2';
+import { FiSettings, FiShoppingCart } from 'react-icons/fi';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 export const Sidebar = () => {
-  const [open, setOpen] = useState(false)
-  const ref = useRef(null)
-  useClickAway(ref, () => setOpen(false))
-  const toggleSidebar = () => setOpen(prev => !prev)
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  useClickAway(ref, () => setOpen(false));
+  const toggleSidebar = () => setOpen(prev => !prev);
 
   return (
     <>
@@ -50,12 +49,12 @@ export const Sidebar = () => {
               </div>
               <ul>
                 {items.map((item, i) => {
-                  const { title, href, Icon } = item
+                  const { title, href, Icon } = item;
                   return (
                     <li key={title}>
-                      <Link
+                      <Link 
                         onClick={toggleSidebar}
-                        href={href}
+                        to={href} 
                         className="flex items-center justify-between gap-5 p-5 transition-all border-b-2 hover:bg-zinc-900 border-zinc-800"
                       >
                         <motion.span {...framerText(i)}>{title}</motion.span>
@@ -64,7 +63,7 @@ export const Sidebar = () => {
                         </motion.div>
                       </Link>
                     </li>
-                  )
+                  );
                 })}
               </ul>
             </motion.div>
@@ -72,15 +71,15 @@ export const Sidebar = () => {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }
 
 const items = [
-  { title: 'Home', Icon: BiHomeSmile, href: '#' },
-  { title: 'About', Icon: BiUser, href: '#' },
-  { title: 'Contact', Icon: HiOutlineChatBubbleBottomCenterText, href: '#' },
-  { title: 'Settings', Icon: FiSettings, href: '#' },
-  { title: 'Shop', Icon: FiShoppingCart, href: '#' },
+  { title: 'Home', Icon: BiHomeSmile, href: '/' },
+  { title: 'About', Icon: BiUser, href: '/About' }, 
+  { title: 'Contact', Icon: HiOutlineChatBubbleBottomCenterText, href: '/Contact' }, 
+  { title: 'Settings', Icon: FiSettings, href: '/Settings' }, 
+  { title: 'Shop', Icon: FiShoppingCart, href: '/Shop' }, 
 ]
 
 const framerSidebarBackground = {

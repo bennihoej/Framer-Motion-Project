@@ -6,7 +6,6 @@ function Home() {
   const firstText = "Framer Motion is a really cool tool".split(" ");
   const secondText = "School Project by Benjamin S. Petersen".split(" ");
 
-  // Variants for the initial text
   const initialVariants = {
     hidden: { opacity: 0 },
     visible: (i) => ({
@@ -18,22 +17,20 @@ function Home() {
     }),
   };
 
-  // Variants for the second text with delay on each word
   const secondTextVariants = {
     hidden: { opacity: 0 },
     visible: (i) => ({
       opacity: 1,
       transition: {
         duration: 1,
-        delay: 1 + i * 0.5, // Start after 2 seconds and then delay each word by 0.5 seconds
+        delay: 1 + i * 0.5, 
       }
     }),
   };
 
-  // Hook for detecting when the initial animation is complete
   useEffect(() => {
     const totalDelay = (firstText.length * 0.5) + 1; 
-    const timer = setTimeout(() => setIsComplete(true), totalDelay * 600); // Convert seconds to milliseconds
+    const timer = setTimeout(() => setIsComplete(true), totalDelay * 600);
     return () => clearTimeout(timer);
   }, [firstText.length]);
 

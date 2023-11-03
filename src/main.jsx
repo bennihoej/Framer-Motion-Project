@@ -15,8 +15,8 @@ const root = createRoot(document.getElementById("root"));
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App/>} >
-      <Route index element={<Home/>}/>
-      <Route element={<About/>}/>
+      <Route path='/' index element={<Home/>}/>
+      <Route path='/About' element={<About/>}/>
     </Route>
   )
 )
